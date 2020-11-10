@@ -1,4 +1,4 @@
-package awto.test.log.request;
+package awto.test.log.dto;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AwLogHashTagREQ implements Serializable {
+public class AwLogLoggerDTO implements Serializable {
 
 	
 	/**
@@ -27,7 +27,7 @@ public class AwLogHashTagREQ implements Serializable {
 	private Integer id;
 	
 	@JsonProperty("creation_date")
-	private Date creation_date;	
+	private Date creationDate;	
 	
 	@JsonProperty("host")
 	private String host;

@@ -1,20 +1,53 @@
 package awto.test.log.service;
 
 import java.util.List;
-import java.util.Optional;
 
-//import awto.test.log.models.AwLogHashTag;
-import awto.test.log.models.AwLogLogger;
-import awto.test.log.request.AwLogHashTagREQ;
+import awto.test.log.dto.AwLogHashTagDTO;
+import awto.test.log.dto.AwLogLoggerDTO;
+import javassist.NotFoundException;
 
 public interface AwLogLoggerService {
-//	Iterable<AwLogLogger> getAllLogs();
-    Optional<AwLogLogger> findById(int id);
-//    Optional<AwLogHashTag> findByHashLog(String hashLog);
-    AwLogLogger save(AwLogLogger awLogLogger);
     
-    
-	AwLogHashTagREQ save(AwLogHashTagREQ awLogHashTagREQ);
-	public List<AwLogHashTagREQ> getAllLogs();
-	public AwLogHashTagREQ addLog(AwLogHashTagREQ awLogHashTagREQ);
+
+	/**
+	 * Recupera listado de todos loslogs y sus hashtags
+	 * @param Nothing
+	 * @return List<AwLogHashTagREQ>
+	 */
+	public List<AwLogLoggerDTO> getAllLogs();
+	
+	/**
+	 * Agrega nuevo log. Si no contiene hashtags, captura IllegalArgumentException
+	 * @param awLogHashTagREQ
+	 * @return AwLogHashTagREQ
+	 * @exception IllegalArgumentException
+	 */
+	public AwLogLoggerDTO addLog(AwLogLoggerDTO awLogHashTagREQ);
+	
+	/**
+	 * Recupera listado de logs segun el hashtag entrante
+	 * @param hashtag
+	 * @return List<AwLogHashTagREQ>
+	 * @throws NotFoundException 
+	 */
+	public List<AwLogLoggerDTO> getLogsByHashTag(String hashtag) throws NotFoundException;
+	
+	/**
+	 * Recupera el log segun el id
+	 * 
+	 * @param logId
+	 * @return AwLogHashTagREQ
+	 * @throws NotFoundException 
+	 */
+	public AwLogLoggerDTO getLogById(Integer logId) throws NotFoundException;
+
+	
+	/**
+	 * Actualiza el hashtag segun el id. En caso de estar repetido el nombre/description captura IllegalArgumentException
+	 * @param awLogHashTagDTO
+	 * @return AwLogHashTagDTO
+	 * @throws Exception 
+	 * @exception IllegalArgumentException
+	 */
+	public AwLogHashTagDTO updHashTag(AwLogHashTagDTO awLogHashTagDTO) throws Exception;
 }

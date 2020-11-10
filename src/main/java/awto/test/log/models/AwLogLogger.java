@@ -38,7 +38,7 @@ public class AwLogLogger implements Serializable {
 	private Integer id;
 	
 	@Column(name="creation_date")
-	private Date creation_date;
+	private Date creationDate;
 	
 	@Column(name="host")
 	private String host;

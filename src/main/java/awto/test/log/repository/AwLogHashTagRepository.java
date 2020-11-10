@@ -8,10 +8,8 @@ import awto.test.log.models.AwLogHashTag;
 
 @Repository
 public interface AwLogHashTagRepository extends JpaRepository<AwLogHashTag, Integer>{
-
-    
-    public AwLogHashTag findByDescription(String description);
-    
+   
+	public AwLogHashTag findByDescription(String description);
 
 }
 

@@ -10,7 +10,5 @@ import awto.test.log.models.AwLogLogger;
 @Repository
 public interface AwLogLoggerRepository extends JpaRepository<AwLogLogger, Integer>{
 
-    
-
 }
 
